@@ -5,21 +5,27 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controle.FuncionarioDAO;
+import modelo.Funcionario;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.BoxLayout;
-import java.awt.Color;
-import java.awt.Label;
-import javax.swing.JButton;
+
+import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class JanelaCadastroPessoa extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtnome;
-	private JTextField txtcpf;
+	private JTextField textNome;
+	private JTextField textCPF;
 
 	/**
 	 * Launch the application.
@@ -42,61 +48,63 @@ public class JanelaCadastroPessoa extends JFrame {
 	 */
 	public JanelaCadastroPessoa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 353, 262);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 0, 128));
+		contentPane.setBackground(new Color(128, 128, 192));
+		contentPane.setForeground(new Color(128, 128, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblnome = new JLabel("Nome:");
-		lblnome.setBackground(new Color(255, 128, 192));
-		lblnome.setBounds(96, 77, 39, 20);
-		contentPane.add(lblnome);
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Source Serif Pro Semibold", Font.PLAIN, 13));
+		lblNome.setBounds(74, 57, 60, 26);
+		contentPane.add(lblNome);
 		
-		txtnome = new JTextField();
-		txtnome.setBackground(new Color(255, 128, 192));
-		txtnome.setBounds(139, 77, 86, 20);
-		contentPane.add(txtnome);
-		txtnome.setColumns(10);
+		JLabel lblCpf = new JLabel("CPF:");
+		lblCpf.setFont(new Font("Source Serif Pro Semibold", Font.PLAIN, 13));
+		lblCpf.setBounds(74, 95, 46, 14);
+		contentPane.add(lblCpf);
 		
-		txtcpf = new JTextField();
-		txtcpf.setBackground(new Color(255, 128, 192));
-		txtcpf.setBounds(139, 46, 86, 20);
-		contentPane.add(txtcpf);
-		txtcpf.setColumns(10);
+		textNome = new JTextField();
+		textNome.setBounds(121, 61, 86, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
 		
-		Label lblcpf = new Label("CPF:");
-		lblcpf.setBackground(new Color(255, 0, 128));
-		lblcpf.setBounds(107, 46, 26, 20);
-		contentPane.add(lblcpf);
+		textCPF = new JTextField();
+		textCPF.setBounds(121, 94, 86, 20);
+		contentPane.add(textCPF);
+		textCPF.setColumns(10);
 		
-		JButton btnsalvar = new JButton("salvar");
-		btnsalvar.addActionListener(new ActionListener() {
+		JButton btnSalvar = new JButton("salvar");
+		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String nome = txtnome.getText();
-				String cpf = txtcpf.getText();
-			
-				if (nome.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido!");
-				}
-				if (cpf.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Nenhum cpf preenchido!");
+				String nome = textNome.getText();
+				String cpf = textCPF.getText();
+				
+				if(nome.isEmpty()||cpf.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Informacao obrigatoria");
 				}
 				
 				Funcionario func = new Funcionario();
 				func.setNome(nome);
-				func.setCpf(Long.volueOf(cpf));
+				func.setCpf(Long.valueOf(cpf));
 				
-				FuncionarioDAO bdPessoa = FuncionarioDAO.get;
-				bdPessoa.inserir(func);
-			
+				FuncionarioDAO bancoDadosPessoa = FuncionarioDAO.getInstancia();
+				bancoDadosPessoa.inserir(func);
+				
+
 			}
 		});
-		btnsalvar.setBackground(new Color(255, 128, 128));
-		btnsalvar.setBounds(138, 166, 89, 23);
-		contentPane.add(btnsalvar);
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		btnSalvar.setBounds(121, 156, 86, 26);
+		contentPane.add(btnSalvar);
 	}
 }
