@@ -1,0 +1,12 @@
+Questões lista 1 pds
+
+1- Coleção de recursos usados, ou seja acesso ao conjunto de funções que já foram escritas por desenvolvedores. 
+
+2- Swing é uma biblioteca do java feita para criar interfaces gráficas.
+
+3- a)JButton 
+b)JTextFiel
+c)JCheckBox
+d)JProgressBar
+e)JOptionPane
+f)JComboBox
