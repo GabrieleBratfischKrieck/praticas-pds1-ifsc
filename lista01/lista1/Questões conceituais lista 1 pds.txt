@@ -10,3 +10,21 @@ c)JCheckBox
 d)JProgressBar
 e)JOptionPane
 f)JComboBox
+
+4- O próposito dos layouts é distribuir visualmente os componentes que colocarmos nele. Flow, box, gride, absolute.
+
+5- Com o métodos getText() e setText().
+
+6- AWT- possui os primeiros componentes gráficos que surgiram no java.
+os componentes possuem uma aparência mais padrão.
+Os componentes não possuem muitos efeitos gráficos.
+
+Swing- O pacote Swing é uma evolução do pacote AWT.
+componentes com uma interface gráfica mais evoluida e com maiores efeitos.
+Os componentes Swing começam com a letra J.
+
+JavaFX- é usado para o desenvolvimento de aplicativos para internet.
+É baseada em Swing.
+composta por vários componentes que fornecem uma ampla variedade de funcionalidades, como gráficos, animações e recursos multimídia.
+
+7-o termo "Look and Feel" é utilizado em relação a interface gráfica do usuário e compreende os aspectos da sua concepção, incluindo elementos como cores, formas, disposição e tipos de caracteres. Interface Nimbus de look and feel, Pluggable Look-and-feel.
