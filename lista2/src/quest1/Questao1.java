@@ -39,7 +39,8 @@ public class Questao1 extends JFrame {
 	 */
 	public Questao1() {
 		
-		 ArrayList <Double> listanumero = new ArrayList <>();
+		ArrayList<Double> numeros = new ArrayList<>();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,6 +50,8 @@ public class Questao1 extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtmostraresultado = new JTextField();
+		txtmostraresultado.setEnabled(false);
+		txtmostraresultado.setEditable(false);
 		txtmostraresultado.setBounds(160, 66, 86, 20);
 		contentPane.add(txtmostraresultado);
 		txtmostraresultado.setColumns(10);
@@ -67,37 +70,28 @@ public class Questao1 extends JFrame {
 		contentPane.add(lblmostraresultado);
 		
 		JButton btncadastrar = new JButton("cadastrar");
-		
-		
-		btncadastrar.addActionListener (new ActionListener () {
+		btncadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Double num = Double.valueOf(txtcadastrarnumero.getText());
 				
-				Double numero = Double.valueOf(txtcadastrarnumero.getText());
-				
-				listanumero.add(numero);
-				
-		}
+				numeros.add(num);
+			}
 		});
 		
 		btncadastrar.setBounds(78, 126, 123, 23);
 		contentPane.add(btncadastrar);
 		
 		JButton btnexibir = new JButton("exibir");
-		btnexibir.addActionListener (new ActionListener () {
-
-			@Override
+		btnexibir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-				Integer quantidade = 0;
-				
-				for(int i =0; i<listanumero.size();i++);
-				if(listanumero.get(i%2 == 0)) {
-					quantidade ++;
-					
+				Integer cont = 0;
+				for(int i=0; i<numeros.size();i++) {
+					if(numeros.get(i)%2==0) {
+						cont++;
+					}
 				}
+				txtmostraresultado.setText(String.valueOf(cont));
 				
-				txtmostraresultado.setText(String.valueOf(quantidade));
 			}
 		});
 		
