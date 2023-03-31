@@ -2,7 +2,7 @@ package quest3;
 
 public class Aluno extends Pessoa {
 
-	Long matricula;
+	private Long matricula;
 
 	public Long getMatricula() {
 		return matricula;
